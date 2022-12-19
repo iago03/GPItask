@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { concatMap, map } from 'rxjs';
 import { environment } from 'src/environments/environment';
-import { httpResponse } from '../shared/interface/http-response-interface';
+import { HttpResponse } from '../shared/interface/http-response-interface';
 
 @Injectable({
   providedIn: 'root',
@@ -19,7 +19,7 @@ export class HttpService {
 
   getCompany() {
     return this.http
-      .get<Array<httpResponse>>(`${environment.api_url}Api/GetAllCompanies`)
+      .get<Array<HttpResponse>>(`${environment.api_url}Api/GetAllCompanies`)
       .pipe(
         concatMap((o: any) => {
           return this.http

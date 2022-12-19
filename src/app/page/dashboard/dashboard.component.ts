@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { BehaviorSubject, Observable, Subscription, switchMap } from 'rxjs';
 import { HttpService } from 'src/app/service/http.service';
 import { ModalService } from 'src/app/service/modal.service';
-import { httpResponse } from 'src/app/shared/interface/http-response-interface';
+import { HttpResponse } from 'src/app/shared/interface/http-response-interface';
 
 @Component({
   selector: 'app-dashboard',
@@ -15,7 +15,7 @@ export class DashboardComponent implements OnInit {
   itemArray$!: Observable<any>;
   refreshInfo$ = new BehaviorSubject<boolean>(true);
 
-  item!: httpResponse;
+  item!: HttpResponse;
 
   constructor(
     private modalService: ModalService,
@@ -39,7 +39,7 @@ export class DashboardComponent implements OnInit {
     }, 5000);
   }
 
-  updatePrice(item: httpResponse) {
+  updatePrice(item: HttpResponse) {
     this.modalShow = true;
     this.item = item;
   }

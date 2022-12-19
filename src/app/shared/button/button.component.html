@@ -1,11 +1,3 @@
-<button
-  [ngStyle]="{
-    'font-size': fontSize,
-    margin: margin,
-    padding: padding,
-    background: background,
-    opacity: opacity
-  }"
->
+<button [ngClass]="buttonClass">
   <ng-content></ng-content>
 </button>

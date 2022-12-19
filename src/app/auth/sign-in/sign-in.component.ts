@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import {
   FormBuilder,
   FormControl,
@@ -6,7 +6,6 @@ import {
   Validators,
 } from '@angular/forms';
 import { Router } from '@angular/router';
-import { Subscription } from 'rxjs';
 import { AuthService } from 'src/app/service/auth.service';
 import { AuthInterface } from 'src/app/shared/interface/auth-interface';
 
@@ -15,8 +14,7 @@ import { AuthInterface } from 'src/app/shared/interface/auth-interface';
   templateUrl: './sign-in.component.html',
   styleUrls: ['./sign-in.component.scss'],
 })
-export class SignInComponent implements OnInit {
-  subscription = new Subscription();
+export class SignInComponent {
   signInform!: FormGroup;
   error = false;
 
@@ -60,9 +58,5 @@ export class SignInComponent implements OnInit {
     Object.keys(form.controls).forEach((key) => {
       form.get(key)?.markAsDirty();
     });
-  }
-
-  ngOnDestroy(): void {
-    this.subscription.unsubscribe();
   }
 }

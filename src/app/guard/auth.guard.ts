@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { CanActivate, UrlTree } from '@angular/router';
+import { CanActivate } from '@angular/router';
 import { Observable } from 'rxjs';
 import { AuthService } from '../service/auth.service';
 
@@ -9,11 +9,7 @@ import { AuthService } from '../service/auth.service';
 export class AuthGuard implements CanActivate {
   constructor(private authService: AuthService) {}
 
-  canActivate():
-    | boolean
-    | UrlTree
-    | Observable<boolean | UrlTree>
-    | Promise<boolean | UrlTree> {
+  canActivate(): Observable<boolean> {
     return this.authService.isUserLoggedIn$;
   }
 }

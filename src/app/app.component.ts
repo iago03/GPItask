@@ -8,7 +8,7 @@ import { AuthService } from './service/auth.service';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  sidebar = true;
+  showSidebar = true;
 
   constructor(private httpAuthService: AuthService, private router: Router) {
     this.checkUser();
@@ -16,7 +16,7 @@ export class AppComponent {
 
   checkUser() {
     this.httpAuthService.isUserLoggedIn$.subscribe((res: boolean) => {
-      this.sidebar = res;
+      this.showSidebar = res;
       if (res) {
         this.router.navigate(['dashboard']);
       }

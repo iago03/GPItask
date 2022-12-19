@@ -1,16 +1,16 @@
-export interface httpResponse {
+export interface HttpResponse {
   company: string;
-  markets: Array<marketsResponse>;
+  markets: Array<MarketsResponse>;
 }
 
-export interface marketsResponse {
-  company: info;
+export interface MarketsResponse {
+  company: Info;
   id: number;
-  market: info;
+  market: Info;
   price: number;
 }
 
-export interface info {
+export interface Info {
   name: string;
   id: number;
 }

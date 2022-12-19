@@ -1,25 +1,23 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import {
   FormBuilder,
   FormControl,
   FormGroup,
   Validators,
 } from '@angular/forms';
-import { Subscription } from 'rxjs';
 import { HttpService } from 'src/app/service/http.service';
 import { ModalService } from 'src/app/service/modal.service';
-import { httpResponse } from 'src/app/shared/interface/http-response-interface';
+import { HttpResponse } from 'src/app/shared/interface/http-response-interface';
 
 @Component({
   selector: 'app-edit-modal',
   templateUrl: './edit-modal.component.html',
   styleUrls: ['./edit-modal.component.scss'],
 })
-export class EditModalComponent implements OnInit {
-  subscriptions = new Subscription();
+export class EditModalComponent {
   formMarket!: FormGroup;
   message = false;
-  @Input() item!: httpResponse;
+  @Input() item!: HttpResponse;
 
   constructor(
     private fb: FormBuilder,
@@ -31,7 +29,7 @@ export class EditModalComponent implements OnInit {
     this.createForm(this.item);
   }
 
-  createForm(item: httpResponse) {
+  createForm(item: HttpResponse) {
     this.formMarket = this.fb.group({
       marketOnePrice: new FormControl(
         item.markets[0].price,
@@ -72,9 +70,5 @@ export class EditModalComponent implements OnInit {
     setTimeout(() => {
       this.message = false;
     }, 2000);
-  }
-
-  ngOnDestroy(): void {
-    this.subscriptions.unsubscribe();
   }
 }

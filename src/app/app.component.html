@@ -1,7 +1,7 @@
 <main>
-  <app-sidebar *ngIf="sidebar"></app-sidebar>
+  <app-sidebar *ngIf="showSidebar"></app-sidebar>
 
-  <section [ngClass]="{ active: sidebar }">
+  <section [ngClass]="{ active: showSidebar }">
     <router-outlet></router-outlet>
   </section>
 </main>
