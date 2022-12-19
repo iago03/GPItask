@@ -1,0 +1,25 @@
+<main *ngIf="itemArray$ | async as newArray">
+  <section>
+    <app-edit-modal *ngIf="modalShow" [item]="item"></app-edit-modal>
+
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Company Name</th>
+          <th *ngFor="let item of newArray[0].markets">
+            {{ item.market.name }}
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of newArray">
+          <td class="name">{{ item.company }}</td>
+          <td *ngFor="let market of item.markets">{{ market.price }} $</td>
+          <td>
+            <button class="button" (click)="updatePrice(item)">Update</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+</main>

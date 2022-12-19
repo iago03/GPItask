@@ -1,0 +1,50 @@
+header {
+  width: 260px;
+  padding: 20px 20px 70px;
+  height: 100vh;
+  color: white;
+  background: rgb(60, 79, 136);
+  background: linear-gradient(
+    0deg,
+    rgba(60, 79, 136, 1) 0%,
+    rgba(2, 2, 38, 1) 100%
+  );
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  h1 {
+    margin: 0px;
+    text-align: center;
+  }
+  ul {
+    padding-top: 50px;
+
+    li {
+      margin-bottom: 15px;
+      cursor: pointer;
+      padding: 10px;
+      &:hover {
+        background-color: #d5d5e7;
+        border-radius: 10px;
+        color: black;
+      }
+
+      fa-icon {
+        margin-right: 10px;
+      }
+    }
+
+    .active {
+      background-color: #d5d5e7 !important;
+      border-radius: 10px !important;
+      color: black !important;
+    }
+  }
+
+  ::ng-deep {
+    button {
+      width: auto !important;
+    }
+  }
+}

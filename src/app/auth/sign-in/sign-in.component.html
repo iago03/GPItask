@@ -1,0 +1,31 @@
+<main>
+  <section>
+    <p *ngIf="error" class="error">Username or Password is Incorrect</p>
+    <form [formGroup]="signInform">
+      <h1>Sign In</h1>
+      <app-input
+        formControlName="userName"
+        label="User Name"
+        inputType="userName"
+        inputId="userName"
+        [control]="signInform.get('userName')"
+      ></app-input>
+
+      <app-input
+        formControlName="password"
+        label="Password"
+        inputType="password"
+        inputId="password"
+        [control]="signInform.get('password')"
+      ></app-input>
+      <app-button
+        (click)="signIn()"
+        [opacity]="signInform.valid ? '1' : '0.7'"
+        [background]="
+          'linear-gradient(0deg, rgba(60,79,136,1) 0%, rgba(2,2,38,1) 100%)'
+        "
+        >Sign-in</app-button
+      >
+    </form>
+  </section>
+</main>

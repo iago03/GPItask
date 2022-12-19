@@ -1,0 +1,65 @@
+<main>
+  <form [formGroup]="formMarket">
+    <div class="menu-btn" (click)="closeModal()">
+      <div class="burger-btn"></div>
+    </div>
+
+    <h2>Edit {{ item.company }} Prices</h2>
+    <p *ngIf="message" class="success">success</p>
+
+    <div class="input-area">
+      <app-input
+        class="input"
+        formControlName="marketOnePrice"
+        [label]="item.markets[0].market.name"
+        inputType="number"
+        inputId="marketOnePrice"
+        [control]="formMarket.get('marketOnePrice')"
+      ></app-input>
+      <app-button
+        class="button"
+        (click)="submit('marketOnePrice', item.markets[0])"
+        fontSize="13px"
+        margin="5px auto 0px"
+        padding="10px"
+        >Edit</app-button
+      >
+    </div>
+    <div class="input-area">
+      <app-input
+        class="input"
+        formControlName="marketTwoPrice"
+        [label]="item.markets[1].market.name"
+        inputType="number"
+        inputId="marketTwoPrice"
+        [control]="formMarket.get('marketTwoPrice')"
+      ></app-input>
+      <app-button
+        class="button"
+        (click)="submit('marketTwoPrice', item.markets[1])"
+        fontSize="13px"
+        margin="5px auto 0px"
+        padding="10px"
+        >Edit</app-button
+      >
+    </div>
+    <div class="input-area">
+      <app-input
+        class="input"
+        formControlName="marketThreePrice"
+        [label]="item.markets[2].market.name"
+        inputType="number"
+        inputId="marketThreePrice"
+        [control]="formMarket.get('marketThreePrice')"
+      ></app-input>
+      <app-button
+        class="button"
+        (click)="submit('marketThreePrice', item.markets[2])"
+        fontSize="13px"
+        margin="5px auto 0px"
+        padding="10px"
+        >Edit</app-button
+      >
+    </div>
+  </form>
+</main>

@@ -1,0 +1,25 @@
+main {
+  display: flex;
+  background-color: #dedfec;
+
+  .active {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 70px 30px;
+    height: 100vh;
+    overflow: auto;
+    width: 100%;
+  }
+  ::ng-deep router-outlet + * {
+    width: 100%;
+  }
+}
+
+@media screen and (max-height: 800px) {
+  main {
+    .active {
+      display: block;
+    }
+  }
+}

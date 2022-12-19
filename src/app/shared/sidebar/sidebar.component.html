@@ -1,0 +1,21 @@
+<header>
+  <nav>
+    <h1>JPI</h1>
+    <ul>
+      <li
+        routerLink="/dashboard"
+        routerLinkActive="active"
+        [routerLinkActiveOptions]="{ exact: true }"
+      >
+        DASHBOARD
+      </li>
+    </ul>
+  </nav>
+  <app-button
+    (click)="logOut()"
+    padding="10px 20px"
+    fontSize="14px"
+    background="red"
+    >log Out</app-button
+  >
+</header>
